@@ -1,0 +1,11 @@
+.bgColor{
+	background-color: #e4e4e4;
+}
+.fullPages>.section-container{
+	padding-top: 0;
+}
+@media (max-width: 1025px){
+	.bgColor{
+		background-color: #fff;
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"small":[
+		"uploadfile/aut-d01s.jpg",
+		"uploadfile/aut-d02s.jpg",
+		"uploadfile/aut-d03s.jpg",
+		"uploadfile/aut-d04s.jpg",
+		"uploadfile/aut-d05s.jpg",
+		"uploadfile/aut-d06s.jpg",
+		"uploadfile/aut-d07s.jpg",
+		"uploadfile/aut-d08s.jpg"
+		],
+	"big":[
+		"uploadfile/aut-d01.jpg",
+		"uploadfile/aut-d02.jpg",
+		"uploadfile/aut-d03.jpg",
+		"uploadfile/aut-d04.jpg",
+		"uploadfile/aut-d05.jpg",
+		"uploadfile/aut-d06.jpg",
+		"uploadfile/aut-d07.jpg",
+		"uploadfile/aut-d08.jpg"
+	       ]
+}

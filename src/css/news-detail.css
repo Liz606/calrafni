@@ -1,0 +1,22 @@
+.newsCentent{
+	line-height: 2.5;
+	    text-align: left;
+}
+.newsTitle{
+	margin: 40px auto;
+}
+.newsDate{
+	display: block;
+}
+.content{
+	text-align: center;
+	padding-top: 0;
+}
+.content img{
+	margin: 0 auto;
+}
+@media (max-width: 1025px){
+	.bgColor{
+		background-color: #fff;
+	}
+}

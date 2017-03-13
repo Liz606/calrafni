@@ -1,0 +1,26 @@
+{
+	"small":[
+		"uploadfile/sum01s.jpg",
+		"uploadfile/sum02s.jpg",
+		"uploadfile/sum03s.jpg",
+		"uploadfile/sum04s.jpg",
+		"uploadfile/sum05s.jpg",
+		"uploadfile/sum06s.jpg",
+		"uploadfile/sum07s.jpg",
+		"uploadfile/sum08s.jpg",
+		"uploadfile/sum09s.jpg",
+		"uploadfile/sum10s.jpg"
+		],
+	"big":[
+		"uploadfile/sum01.jpg",
+		"uploadfile/sum02.jpg",
+		"uploadfile/sum03.jpg",
+		"uploadfile/sum04.jpg",
+		"uploadfile/sum05.jpg",
+		"uploadfile/sum06.jpg",
+		"uploadfile/sum07.jpg",
+		"uploadfile/sum08.jpg",
+		"uploadfile/sum09.jpg",
+		"uploadfile/sum10.jpg"
+	       ]
+}

@@ -1,0 +1,44 @@
+.textContent{
+	text-align: center;
+}
+.concent{
+
+}
+@media (min-width: 1025px){
+	.concent{
+	    width: 60%;
+	    max-width: 700px;
+	    text-align: center;
+	    margin: 20px auto;
+	}
+
+	#titleBox{
+		margin-bottom: 80px;
+	}
+
+	.textWarrper>.p-12,.textWarrper>.base-Btn{
+		font-family:Corbel, Microsoft Yahei, STHeiti, Arial;
+	}
+	.section-container.p-r{
+		display:none;
+	}
+	.boxType5-component:nth-child(odd)>.boxText {
+	    float: right;
+	}
+	.boxType5-component:nth-child(odd)>.boxPic {
+	    float: left;
+	}
+
+}
+@media (max-width: 1025px){
+	.concent{
+		width: 100%;
+		padding:20px;
+	}
+	.section-container.boxType3-component>.boxText {
+		background-color: #e4e4e4;
+	}
+	.boxType5-component{
+		display: none;
+	}
+}

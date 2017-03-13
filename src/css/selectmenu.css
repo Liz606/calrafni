@@ -1,0 +1,50 @@
+#divselect1,#divselect2,#divselect3 {
+    width: 49%;
+    margin: 0px auto;
+    position: relative;
+    padding:10px;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+}
+#divselect1 cite ,#divselect2 cite ,#divselect3 cite {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    color: #807a62;
+    font-style: normal;
+    text-align: center;
+    padding-left: 4px;
+    padding-right: 30px;
+    background: url('../images/black-toDown.png') no-repeat 85% center;
+}
+#divselect1 ul,#divselect2 ul,#divselect3 ul{
+        width: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    height: auto!important;
+    z-index: 20000;
+    margin-top: -1px;
+    margin-left: -10px;
+}
+
+#divselect1 ul li,#divselect2 ul li,#divselect3 ul li{
+    height: 24px;
+    line-height: 24px;
+        text-align: center;
+}
+
+#divselect1 ul li a ,#divselect2 ul li a ,#divselect3 ul li a{
+    display: block;
+    height: 24px;
+    color: #333333;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#divselect1 ul li a:hover ,#divselect2 ul li a:hover ,#divselect3 ul li a:hover{
+    background-color: #000;
+    color: #ffffff;
+}
