@@ -15,9 +15,12 @@ module.exports = {
         'join':  path.join(APP_PATH,'js/join'),
         'contact':  path.join(APP_PATH,'js/contact'),
         'lookbook':  path.join(APP_PATH,'js/lookbook'),
+        'lookbookslider':  path.join(APP_PATH,'js/lookbookslider'),
         'product':  path.join(APP_PATH,'js/product'),
         'detail':  path.join(APP_PATH,'js/detail'),
         'news-detail':  path.join(APP_PATH,'js/news-detail'),
+        'about-culture':  path.join(APP_PATH,'js/about-culture'),
+        'about-history':  path.join(APP_PATH,'js/about-history'),
         'vendor':['jquery']
     },
     output: {//输出文件
@@ -42,7 +45,7 @@ module.exports = {
           loaders:['vue'] 
         },{
             test: /\.(ttf|eot|otf|woff)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-            loader: 'url-loader'
+            loader: 'url-loader?limit=1&name=./[name].[ext]'//&连接，相对于html
         }, {
             test: /\.(svg|png|gif|jpg|mp4)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
             exclude: './src/css/',
@@ -73,13 +76,63 @@ module.exports = {
             chunks: ['about','vendor']
         }),
         new HtmlWebpackPlugin({
+            filename: './about-culture.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/about-culture.html',
+            chunks: ['about-culture','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './about-history.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/about-history.html',
+            chunks: ['about-history','vendor']
+        }),
+        new HtmlWebpackPlugin({
             filename: './lookbook.html',//相对js输出文件抽离html文件的输出路径
             template: './src/lookbook.html',
             chunks: ['lookbook','vendor']
         }),
+         new HtmlWebpackPlugin({
+            filename: './lookbook-spring.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/lookbook-spring.html',
+            chunks: ['lookbookslider','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './lookbook-summer.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/lookbook-summer.html',
+            chunks: ['lookbookslider','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './lookbook-autumn.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/lookbook-autumn.html',
+            chunks: ['lookbookslider','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './lookbook-winter.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/lookbook-winter.html',
+            chunks: ['lookbookslider','vendor']
+        }),
         new HtmlWebpackPlugin({
             filename: './product.html',//相对js输出文件抽离html文件的输出路径
             template: './src/product.html',
+            chunks: ['product','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './product-spring.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/product-spring.html',
+            chunks: ['product','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './product-summer.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/product-summer.html',
+            chunks: ['product','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './product-autumn.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/product-autumn.html',
+            chunks: ['product','vendor']
+        }),
+        new HtmlWebpackPlugin({
+            filename: './product-winter.html',//相对js输出文件抽离html文件的输出路径
+            template: './src/product-winter.html',
             chunks: ['product','vendor']
         }),
         new HtmlWebpackPlugin({

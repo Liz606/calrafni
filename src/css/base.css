@@ -13,11 +13,7 @@ body, div, span,h1, h2, h3, h4, h5, h6, p,pre, a, em, img, q, ul, li, table,sect
 }
 @font-face {
     font-family: Corbel;
-    src:url('../fonts/corbel3.eot'),  
-        url('../fonts/corbel3.otf'),
-        url('../fonts/corbel3.svg'),
-        url('../fonts/corbel3.woff'),
-        url('../fonts/corbel3.ttf'); 
+    src:url('../fonts/corbel3.ttf'); 
 }
 @font-face {
     font-family: Bodoni;
@@ -101,10 +97,10 @@ img {
     visibility: visible;
 }
 .none {
-    display: none;
+    display: none!important;
 }
 .block {
-    display: block;
+    display: block!important;
 }
 .inline-block {
     display: inline-block;
@@ -190,7 +186,7 @@ img {
 
 /*自适应，所有网页的布局可最多可分为12列*/
 /*平板-small*/
-@media (min-width: 320px) and (max-width: 1025px) {  
+@media (max-width: 1025px) {  
       .col-sm-12 {
         width: 100%;
       }
@@ -268,7 +264,7 @@ img {
       }       
 }               
 /*pc端 medium*/
-@media (max-width: 1400px) {
+@media (min-width: 1025px) {
       .col-lg-12 {
         width: 100%;
       }

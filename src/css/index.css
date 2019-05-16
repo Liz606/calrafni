@@ -12,13 +12,14 @@
 	}
     #product>.section-container {
         padding: 40px;
-        margin: 40px;
-        width: calc( 100% - 80px);
+        margin: 0px 80px 80px;
+        width: calc( 100% - 160px);
     }
     #product>.section-container>.sliderBoxMb {
         width: 70%;
         height: 520px;
         float: left;
+        overflow: hidden;
     }
     #product>.section-container>.sliderBoxMb>a {
         width: 100%;
@@ -54,6 +55,26 @@
     }
     .storeTitle>.smallTitle {
         font-size: 12px;
+    }
+    #about>.boxType3-component>.boxText>.textWarrper{
+        position: absolute;
+	    top: 50%;
+        left:0;
+		text-align: left;
+	    -webkit-transform: translate3D(0,-50%,0);
+	    transform: translate3D(0,-50%,0);
+    }
+    #cantact>.boxType3-component>.boxText>.textWarrper>.boxTextContent3{
+        font-size: 12px;
+        font-family: Futura, Microsoft Yahei, STHeiti, Arial;
+        margin-top: 20px;
+        height: 56.2px;
+        overflow: hidden;
+        margin-bottom: 0;
+    }
+    .ornamentImg{
+        width: 70%;
+        float: right;
     }
 }
 

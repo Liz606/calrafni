@@ -1,58 +1,75 @@
   $.fn.sliderFunc=function(_stat) {
     var _super=this;
-	var animated = false;
+  var animated = false;
     var _const=_super.children().length;
-	var timer;
+  var timer;
     var _point='point';
-	var index = 0; //记录点击
-	var sliderWidth=$(_super).width();
+  var index = 0; //记录点击
+  var sliderWidth=$(_super).width();
     var _stat=true;
     //将轮播图最后一个移动到第一个
     var superlast=$(_super).children().last().clone();
     $(_super).children().last().remove();
     $(_super).prepend(superlast);
 
-	var Children = $(_super).children();
+  var Children = $(_super).children();
     var p=1;//错位个数
-	var start={},
-		current={};
-    //动态设置滚动元素的宽度，left和index编号
-    $.each(Children,function(i){
-         $(this).attr({'width':(sliderWidth + 'px'),'index':(i)});
-         $(this).css({'left':(($(this).attr('index')-1)*sliderWidth + 'px')});
-         $(this).attr({'index':i});
-         if (i==0) {
-           $(this).attr('index',_const); 
-         };
-        // $(this).html($(this).attr('index'));//输出当前页号
-    })
-    //当需要显示原点时
-    if (_stat) {
-        //动态生成原点盒子
-        var div=document.createElement("div");
-            div.setAttribute('id',_point);
-            _point="#point";
-            $(_super).after(div);
-        //动态生成原点
-        for (var i = 0; i <_const; i++) {
-            var _pointChild=document.createElement("span");
-             _pointChild.setAttribute('index',i+1);
-            $(_point).append(_pointChild);
-        };
-        var _point=$(_point).children();
-        _point[0].className = 'on';
-       for (var i = _point.length - 1; i >= 0; i--) {
-            _point[i].addEventListener('click',function () {//为原点绑定点击事件
-            var num=$(this).attr('index');//获取原点序号
-            pageClick(num);
-        })
-        };
-    };
-	
-    $(_super).on('touchstart','',pageStart);
-    $(_super).on('touchmove','',pageMove);
-    $(_super).on('touchend','',pageEnd);   
-    autoPlay(sliderWidth);
+  var start={},
+    current={};
+  //动态设置滚动元素的宽度，left和index编号
+  $.each(Children,function(i){
+       $(this).attr({'width':(sliderWidth + 'px'),'index':(i)});
+       $(this).css({'left':(($(this).attr('index')-1)*sliderWidth + 'px')});
+       $(this).attr({'index':i});
+       if (i==0) {
+         $(this).attr('index',_const); 
+       };
+      // $(this).html($(this).attr('index'));//输出当前页号
+  })
+  //当需要显示原点时
+  if (_stat) {
+      //动态生成原点盒子
+      var div=document.createElement("div");
+          div.setAttribute('id',_point);
+          _point="#point";
+          $(_super).after(div);
+      //动态生成原点
+      for (var i = 0; i <_const; i++) {
+          var _pointChild=document.createElement("span");
+           _pointChild.setAttribute('index',i+1);
+          $(_point).append(_pointChild);
+      };
+      var _point=$(_point).children();
+      _point[0].className = 'on';
+     for (var i = _point.length - 1; i >= 0; i--) {
+          _point[i].addEventListener('click',function () {//为原点绑定点击事件
+          var num=$(this).attr('index');//获取原点序号
+          pageClick(num);
+      })
+      };
+  };
+
+    
+
+    _init();
+
+    
+
+
+    //enter
+    function _init() {
+        $(_super).bind('runstate', '', function() {
+            animated = true;
+        });
+        $(_super).bind('stopstate', '', function() {
+            animated = false;
+        });
+        $(_super).on('touchstart','',pageStart);
+        $(_super).on('touchmove','',pageMove);
+        $(_super).on('touchend','',pageEnd);
+        autoPlay(sliderWidth);
+        return $(_super); //以便于链式调用
+    }
     // pageClick
     function pageClick(num){
         if (!animated) {
@@ -64,7 +81,6 @@
                     from=parseInt($(this).attr('index'));
                 };
             })
-             console.log('from:'+from+'     to:'+to)
 
             if (from==to) {
                 return;
@@ -83,7 +99,6 @@
     }
     //pageStart
     function pageStart(e){
-        console.log('pageStart');
         if(start.active) return;
         if( e.originalEvent.touches.length < 2 ) {
           start.x = e.originalEvent.touches[0].pageX;
@@ -93,7 +108,6 @@
     }
     //pageEnd
     function pageEnd(e){
-        console.log('pageEnd');
         current.x = e.originalEvent.changedTouches[0].pageX;       
         start.active = false;   
         if(isSwipe(e) ){
@@ -113,13 +127,11 @@
     }   
     //向左滚动一页
     function Arrow_r(sw) {
-    	console.log('Arrow_r'+index);
         if (!animated) {
             index++;
            if(index==_const){
                 index=0;
             }
-            console.log("当前页面"+index);
             if (_stat) {
                 showPoint();
             };
@@ -128,7 +140,6 @@
     }
     //向右滚动一页
     function Arrow_l(sw) {
-    	console.log('Arrow_l'+index);
         if (!animated) {
             index--;
             if (index==-1) {
@@ -143,14 +154,12 @@
     }
     //自动向左滚动
     function autoPlay(sw) {
-    	console.log('autoPlay'+index);
         timer = setInterval(function() {
             Arrow_r(sw);
         }, 5000)
     }
     //停止自动滚动
     function stopAuto() {
-    	console.log('stopAuto');
         clearInterval(timer)
     }
     //点亮当前原点

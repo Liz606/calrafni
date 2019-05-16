@@ -31,7 +31,7 @@
 </div>
  */
 
-.boxType1-component>.maskBox{
+.boxType1-component .maskBox{
     width: 90%;
     max-width: 300px;
     height: 80px;
@@ -45,12 +45,12 @@
     -webkit-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
 }
-.boxType1-component>.maskBox>.p-24{
+.boxType1-component .maskBox>.p-24{
 	font-family:Bodoni, Microsoft Yahei, STHeiti, Arial;
     text-transform: uppercase;
 }
 
-.boxType1-component>.maskBox>.p-16{
+.boxType1-component .maskBox>.p-16{
 	font-family:Corbel, Microsoft Yahei, STHeiti, Arial;
 }
 
@@ -75,10 +75,9 @@
 
 .boxTextContent3{
     font-size: 12px;
-    line-height: 1.6;
     font-family: Futura, Microsoft Yahei, STHeiti, Arial;
-    margin-bottom: 40px;
     margin-top: 20px;
+    margin-bottom: 40px;
     height: 56.2px;
     overflow: hidden;
 }
@@ -123,13 +122,19 @@
 		width: calc(50% - 40px);
 		display: inline-block;
 	}
+   #news>.section-container>.boxType2-component>.bgImg{
+        height: 382px;
+        position: relative;
+    }
 	.section-container>.boxType1-component:last-child,.section-container>.boxType2-component:last-child{
 		margin-left:80px;
 	}
+
 	.boxType2-component>.border20{
 		border:40px solid #e4e4e4;
 	}
-	.boxType2-component>.boxImg{
+
+	.boxType2-component>.bgImg{
 		height: 382px;
 		position: relative;
 		background-size: cover;
@@ -146,8 +151,10 @@
 	.boxType3-component>.boxText>.textWarrper{
 		position: absolute;
 	    top: 50%;
-	    -webkit-transform: translate(0,-50%);
-	    transform: translate(0,-50%);
+		left:50%;
+		text-align: center;
+	    -webkit-transform: translate3D(-50%,-50%,0);
+	    transform: translate3D(-50%,-50%,0);
 	}
 	.boxType3-component>.boxPic{
 		float: right;

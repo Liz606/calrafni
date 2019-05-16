@@ -24,21 +24,86 @@ function smoothScroll(btn, target) {
 
 
 window.onload = function() {
-    $('#indexSliderBox').sliderFunc();
+    
+    //全局公共变量
+    var _window=$(window);
+    initFunc();
+    //监听窗口大小变化
+    _window.resize(function(){
+        initFunc();
+    });
+    if ($('#indexSliderBox').length>0) {
+        $('#indexSliderBox').sliderFunc();
+    };
+
+    
+    $(".menu-mobile-trigger").click(function(){
+        var _this=$(this);
+        var _listBox=$('.menu-item-list-wrapper');
+        if (_this.hasClass("open")) {
+            _this.removeClass("open");
+            _listBox.removeClass("open");
+        }else{
+            _this.addClass('open');
+            _listBox.addClass('open');
+        }
+    });
+
+
+    $(".divselect cite").click(function(){//当language select被点击，显示 opations
+        var ul = $(this).parent().children("ul");
+        if(ul.css("display")=="none"){
+            ul.css("display","block");
+            $(this).parent().css("border","1px solid #000");
+        }else{
+            ul.css("display","none");
+            $(this).parent().css("border","1px solid #fff");
+        }
+    });
+
+    $('#sliderVideoTag').on('pause',function(){
+        $('#indexSliderBox').trigger('stopstate');
+        $('#point').removeClass('none').addClass('block');
+    })
+    $('#sliderVideoTag').on('play',function(){
+        $('#point').removeClass('none').addClass('block');
+        $('#indexSliderBox').trigger('runstate');
+    })
+
+    $('.videoOn').click(function () {
+        if ($('#videPlay>video').length==0) {
+            var _url=$(this).attr('data-src');
+            var V=$('<video>').attr({'preload':'auto','controls':'controls'}).addClass('acm');
+            var S=$('<source>').attr({'src':_url,'type':'video/mp4'});
+                V.appendTo($('#videPlay'));
+                S.appendTo(V);
+            };
+            $('#videPlay>video').get(0).play();
+            $('#videPlay>video').attr('width',(_window.width()-200)+'px');
+            $('#videPlay').removeClass('none').addClass('block');
+         
+         $('#fullpage').bindScroll();
+        $('#indexSliderBox').trigger('runstate');
+    })
+    $('#videPlay>.videoClose').click(function () {
+        $('#videPlay>video').remove();
+        $('#videPlay').removeClass('block').addClass('none');
+        $('#indexSliderBox').trigger('stopstate');
+         $('#fullpage').unBindScroll();
+    })
+
 }
 
-//全局公共变量
-var _window=$(window);
 
 
 //初始化
 function initFunc(){
     //menu响应式高度处理
-    var _screeHeight=_window.height();
-    var windowWidth=_window.width();
+    var _screeHeight=$(window).height();
+    var windowWidth=$(window).width();
     if (windowWidth>=1025) {//屏幕响应断点
         $(".menu-item-list-wrapper").css({height:"100%"});
-        $("#index").css({height:_screeHeight});
+        $("#index").css({height:_screeHeight-25});
         $(".menu-item").children('.menu-item-content-wrapper').children('.menuList').children('a').mouseenter(function(){
              var Src=$(this).attr("data-src");
              var pBig=$(this).attr("pBig");
@@ -67,61 +132,6 @@ function initFunc(){
     }
       getActive();
 }
-initFunc();
-
-
-//监听窗口大小变化
-_window.resize(function(){
-    initFunc();
-});
-
-
-$(".menu-mobile-trigger").click(function(){
-    var _this=$(this);
-    var _listBox=$('.menu-item-list-wrapper');
-    if (_this.hasClass("open")) {
-        _this.removeClass("open");
-        _listBox.removeClass("open");
-    }else{
-        _this.addClass('open');
-        _listBox.addClass('open');
-    }
-});
-
-
-//
-$(".divselect cite").click(function(){//当language select被点击，显示 opations
-    var ul = $(this).parent().children("ul");
-    if(ul.css("display")=="none"){
-        ul.css("display","block");
-        $(this).parent().css("border","1px solid #000");
-    }else{
-        ul.css("display","none");
-        $(this).parent().css("border","1px solid #fff");
-    }
-});
-
-$('.videoOn').click(function () {
-    if ($('#videPlay>video').length==0) {
-        var _url=$(this).attr('data-src');
-        var V=$('<video>').attr({'preload':'auto','controls':''}).addClass('acm');
-        var S=$('<source>').attr({'src':_url,'type':'video/mp4'});
-            V.appendTo($('#videPlay'));
-            S.appendTo(V);
-        };
-        $('#videPlay>video').get(0).play();
-        $('#videPlay>video').attr('width',(_window.width()-200)+'px');
-        $('#videPlay').removeClass('none').addClass('block');
-     $('#fullpage').bindScroll();
-
-})
-$('#videPlay>.videoClose').click(function () {
-    $('video').get(0).pause();
-    $('video').remove();
-    $('#videPlay').removeClass('block').addClass('none');
-    $('#fullpage').unBindScroll();
-})
-
 //拓展$.prototype
     $.fn.extend({
         LizToggleOne:function(str1,str2) {
@@ -167,16 +177,64 @@ $('#videPlay>.videoClose').click(function () {
             });
         },
         unBindScroll:function () {
-            console.log('unBindScroll');
             var eventType = 'mousewheel';
             if (document.mozHidden !== undefined) {
                 eventType = 'DOMMouseScroll';
             }
             $(document).off(eventType);
+        },
+        loadImage : function() {
+            var $this = $(this);
+            var img = new Image(); //创建一个Image对象，实现图片的预下载
+            img.src = $this.attr('data-src');
+
+            if (img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                callback($this)
+                return; // 直接返回，不用再处理onload事件
+            }
+
+            img.onload = function() { //图片下载完毕时异步调用callback函数。
+                callback($this);
+            };
+
+            function callback($this) {
+                $this.css('background-image', 'url("'+img.src+'")');
+                $this.children('.loadImg').remove();
+            }
+        },
+        loadImageSingle:function() {
+            var $this = $(this);
+            var img = new Image(); //创建一个Image对象，实现图片的预下载
+            img.src = $this.attr('data-src');
+
+            if (img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                callback($this)
+                return; // 直接返回，不用再处理onload事件
+            }
+
+            img.onload = function() { //图片下载完毕时异步调用callback函数。
+                callback($this);
+            };
+
+            function callback($this) {
+                $this.attr({'src': img.src,
+                            'width':'auto',
+                            'height':'auto'});
+            }
         }
     });
+
+   //$('.loadingBox').loadImage();
+   var loadingBox=$('.loadingBox');
+   $.each(loadingBox,function(i){
+        $(loadingBox[i]).loadImage();
+   })
+    var loadImgSingle=$('.loadImgSingle');
+   $.each(loadImgSingle,function(i){
+        $(loadImgSingle[i]).loadImageSingle();
+   })
 function toTop(){
-    $('html, body').animate({scrollTop: $('.fullPages').offset().top+_window.height()/2}, 500);
+    $('html, body').animate({scrollTop: $('.fullPages').offset().top+$(window).height()/2}, 500);
 }
 
 function getActive(){
@@ -193,6 +251,11 @@ function getActive(){
     if (query) {
         if (query!="stores"&&query!="lookbook-detail"&&query!="product-detail") {
             setTimeout(toTop(),2000);
+            // setTimeout(function() {
+            // $.each($("#indexSliderBox").children(),function(i){
+            //        $(this).css({'background-attachment':'inherit'});
+            //   })
+            // }, 3000)
         };
         if (query=="lookbook-detail") {
             query="lookbook";
