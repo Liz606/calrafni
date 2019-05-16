@@ -1,0 +1,343 @@
+#divselect1,#divselect2,#divselect3 {
+    width: 49%;
+    margin: 0px auto;
+    position: relative;
+    padding:10px;
+    z-index: 10;
+    cursor: pointer;
+    background-color: #fff;
+}
+#divselect1 cite ,#divselect2 cite ,#divselect3 cite {
+    width: 100%;
+    height: 24px;
+    line-height: 24px;
+    display: block;
+    color: #807a62;
+    font-style: normal;
+    text-align: left;
+    padding-left: 4px;
+    padding-right: 30px;
+    background: url(./images/black-toDown.png) no-repeat 85% center;
+}
+#divselect1 ul,#divselect2 ul,#divselect3 ul{
+        width: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    height: auto!important;
+    z-index: 20000;
+    margin-top: -1px;
+    margin-left: -10px;
+}
+
+#divselect1 ul li,#divselect2 ul li,#divselect3 ul li{
+    height: 24px;
+    line-height: 24px;
+        text-align: center;
+}
+
+#divselect1 ul li a ,#divselect2 ul li a ,#divselect3 ul li a{
+    display: block;
+    height: 24px;
+    color: #333333;
+    text-decoration: none;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#divselect1 ul li a:hover ,#divselect2 ul li a:hover ,#divselect3 ul li a:hover{
+    background-color: #000;
+    color: #ffffff;
+}.textContent {
+    text-align: center;
+}
+
+@media (min-width: 1025px) {
+ .mod18 {
+        width: 100%;
+        height:100%;
+        position: relative;
+        background: #fff;
+    }
+    .mod18 .btn {
+        position: absolute;
+        cursor: pointer;
+        z-index: 99;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .mod18 .prev {
+        left: 0;
+        background: url(./images/prevBtnTop.png) no-repeat;
+    }
+    .mod18 #prevTop,
+    .mod18 #nextTop {
+        width: 60px;
+        height: 60px;
+        
+    }
+    .mod18 #prevTop {
+        left: 60px;
+        background: url(./images/prevBtnTop.png) 0 0 no-repeat;
+    }
+    .mod18 #nextTop {
+        right: 60px;
+        background: url(./images/nextBtnTop.png) 0 0 no-repeat;
+    }
+    .mod18 li {
+        float: left;
+    }
+    .mod18 .cf li {
+        position: relative;
+        color: #fff;
+    }
+    .mod18 .cf a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        color: #fff;
+    }
+    .mod18 .picBox {
+         height: calc(100% - 200px);
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .mod18 .picBox ul {
+        height: 100%;
+        position: absolute;
+    }
+    .mod18 .picBox li {
+        height: 100%;
+    }
+    .mod18 .listBox {
+            width: 100%;
+            height: 200px;
+            border-bottom: 1px solid #c0c0c0;
+            border-top: 1px solid #c0c0c0;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+    }
+    .mod18 .listBox ul {
+        height: 100%;
+        position: absolute;
+    }
+    .mod18 .listBox li {
+        width: 118px;
+           height: calc(100% - 40px);
+        border: 1px solid transparent;
+        cursor: pointer;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat:no-repeat;
+    }
+    .mod18 .listBox li.on  {
+        border: 1px solid #ff6600;
+    }
+    .bigS{
+        font-size: 45px;
+        font-family: SuperiorTitle;
+    }
+    .bigS>span{
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+    .smallS{
+        font-size: 12px;
+        font-family: SuperiorTitle;
+    }
+
+    .fullPages{
+        height: calc(100% - 65px);
+        margin-top:65px;
+    }
+     .storeTitlie {
+        width: 25%;
+        min-width: 450px;
+        bottom: 15%;
+        position: absolute;
+        left: 50%;
+            top: 65%;
+        -webkit-transform: translateX(-50%);
+        transform: translateX(-50%);
+        }
+    .storeList {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 40px;
+        margin: 20px;
+            font-size: 12px;
+    }
+    .concent {
+        width: 60%;
+        max-width: 700px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .section-container.boxType3-component>.boxText {
+        background-color: #e4e4e4;
+        width: 35%;
+        height: 350px;
+        display: table;
+    }
+    .section-container.boxType3-component>.boxText>.textWarrper {
+        display: table-cell;
+        vertical-align: middle;
+        padding: 40px;
+    }
+    .titleBox {
+        margin-bottom: 40px;
+    }
+    .boxType3-component {
+        margin-top: 40px;
+    }
+    .boxType3-component:nth-child(odd)>.boxText {
+        float: right;
+        right: 0;
+        text-align: left;
+        position: absolute;
+        top: 50%;
+        -webkit-transform: translate(0, -50%);
+        transform: translate(0, -50%);
+    }
+    .boxType3-component:nth-child(odd)>.boxPic {
+        float: left;
+        width: 65%;
+        height: 350px;
+        margin-left: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+    .mod18 #prevTop,
+    .mod18 #nextTop {
+        top:35%;
+    }
+   
+}
+
+@media (max-width: 1025px) {
+     .storeTitlie {
+        width: 80%;
+        margin: 40px auto;
+    }
+    .storeList {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        height: 40px;
+    }
+    .concent {
+        width: 100%;
+        padding: 20px;
+    }
+    .section-container.boxType3-component>.boxText {
+        background-color: #e4e4e4;
+    }
+    .boxType3-component {
+        display: none;
+    }
+    .mod18 .listBox{
+        display: none;
+    }
+    .mod18 #prevTop, .mod18 #nextTop{
+        bottom: 0px;
+    }
+   
+    .mod18 {
+        width: 100%;
+        height:100%;
+        position: relative;
+        background: #fff;
+    }
+    .mod18 .btn {
+        position: absolute;
+        cursor: pointer;
+        z-index: 99;
+        font-size: 50px;
+        font-weight: bold;
+    }
+    .mod18 .prev {
+        left: 0;
+        background: url(./images/prevBtnTop.png) no-repeat;
+    }
+    .mod18 #prevTop,
+    .mod18 #nextTop {
+        width: 60px;
+        height: 60px;
+        
+    }
+    .mod18 #prevTop {
+        left: 100px;
+        background: url(./images/prevBtnTop.png) 0 0 no-repeat;
+    }
+    .mod18 #nextTop {
+        right: 100px;
+        background: url(./images/nextBtnTop.png) 0 0 no-repeat;
+    }
+    .mod18 li {
+        float: left;
+    }
+    .mod18 .cf li {
+        position: relative;
+        color: #fff;
+    }
+    .mod18 .cf a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        color: #fff;
+    }
+    .mod18 .picBox {
+        height:80%;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .mod18 .picBox ul {
+        height: 100%;
+        position: absolute;
+    }
+    .mod18 .picBox li {
+        height: 100%;
+    }
+    .mod18 .listBox {
+            width: 100%;
+            height: 200px;
+            border-bottom: 1px solid #c0c0c0;
+            border-top: 1px solid #c0c0c0;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+    }
+    .mod18 .listBox ul {
+        height: 100%;
+        position: absolute;
+    }
+    .mod18 .listBox li {
+        width: 118px;
+           height: calc(100% - 40px);
+        border: 1px solid transparent;
+        cursor: pointer;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-repeat:no-repeat;
+    }
+    .mod18 .listBox li.on  {
+        border: 1px solid #ff6600;
+    }
+    .bgimg>.acm{
+        display: none;
+    }
+
+    .fullPages{
+        height: calc(70% - 65px);
+        margin-top:65px;
+    }
+}
+
+/*# sourceMappingURL=stores.css.map*/

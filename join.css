@@ -1,0 +1,28 @@
+
+.joinCondition,.joinProgress{
+	text-align: center;
+	padding: 20px 80px;
+}
+.joinConditionTitle1{
+	font-size: 24px;
+}
+.joinConditionConcent{
+	font-size: 12px;
+	line-height: 1.6;
+}
+.joinConditionTitle2{
+	font-size: 18px;
+	padding: 10px;
+}
+.hr{
+	height: 1px;
+    margin: 0 80px;
+    width: calc(100% - 160px);
+	border-top: solid 1px #ccc;
+}
+.joinCProgressConcent{
+	font-size: 12px;
+	line-height: 24px;
+	margin:10px ;
+}
+/*# sourceMappingURL=join.css.map*/
